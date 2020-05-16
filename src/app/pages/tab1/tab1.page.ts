@@ -9,16 +9,13 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  listaPendientes: any[] = [];
   constructor(
     public deseosService: DeseosService,
     private router: Router,
     private alertController: AlertController) {
-    this.listaPendientes = deseosService.listas;
   }
 
   async agregarLista() {
-    //this.router.navigateByUrl('/tabs/tab1/agregar');
     const alert = await this.alertController.create({
       header: 'Nueva Lista',
       inputs: [
@@ -50,7 +47,7 @@ export class Tab1Page {
         }
       ]
     });
-
     alert.present();
   }
+
 }

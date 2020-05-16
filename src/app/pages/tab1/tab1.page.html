@@ -7,17 +7,11 @@
 </ion-header>
 
 <ion-content color="dark">
-  <ion-list color="dark">
-    <ion-item color="dark" *ngFor="let item  of listaPendientes;let i=index" detail>
-      <ion-label>
-        {{i + 1}}. {{ item.titulo }}
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <app-listas [terminada]="false"></app-listas>
   <!-- fab placed to the bottom end -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button color="tertiary" (click)="agregarLista()">
-      <ion-icon name="arrow-forward-circle"></ion-icon>
+      <ion-icon name="add-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 

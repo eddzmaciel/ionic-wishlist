@@ -35,8 +35,21 @@ export class AgregarPage implements OnInit {
     this.deseosService.guardarStorage();
   }
 
+  cambioCheck(item: ListaItem) {
+    const pendientes = this.lista.items.filter(dataItem => (!dataItem.completado)).length;
+    if (pendientes === 0) {
+      this.lista.terminadaEn = new Date();
+      this.lista.terminada = true;
+    } else {
+      this.lista.terminadaEn = null;
+      this.lista.terminada = false;
+    }
+    this.deseosService.guardarStorage();
+  }
+
+  borrar(i: number) {
+    this.lista.items.splice(i, 1);
+    this.deseosService.guardarStorage();
+  }
+
 }
-
-
-
-
